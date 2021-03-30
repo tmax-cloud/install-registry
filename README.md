@@ -4,13 +4,13 @@
 * docker-ce(v20.10.5)
 
 ## 폐쇄망 설치 가이드
-  * image registry는 노드 1개(master)에서만 진행한다. 
+  * image registry는 노드 1개(master)에서만 진행한다.
   * 환경 설정
     * run-registry.sh, docker-registry.tar를 Master 환경에 다운로드한다.
         * https://github.com/tmax-cloud/install-registry/manifest
         * git이 설치되어 있는 경우 clone
            ```bash
-           $ git clone https://github.com/tmax-cloud/install-registry.git
+           $ https://github.com/tmax-cloud/install-registry/tree/5.0/manifest
            $ cd install-registry/manifest
            ```
 
@@ -18,7 +18,7 @@
 0. [docker 설치](#step-0-docker-%EC%84%A4%EC%B9%98)
 1. [registry 실행](#step-1-registry-%EC%8B%A4%ED%96%89)
 
-## Step 0. docker 설치
+## Step 0. docker-ce 설치
 * 목적 : `docker registry를 구축하기 위해 docker를 설치한다.`
 * 생성 순서 : 
     * docker를 설치한다.
@@ -47,15 +47,15 @@
     * run-registry.sh를 실행한다.
     	 * run-registry.sh, docker-registry.tar 파일이 같은 디렉토리({PWD})에 있어야 한다.
     ```bash
+    $ sudo chmod +x run-registry.sh
     $ sudo ./run-registry.sh {PWD} {IP}:5000
     ex ) sudo ./run-registry.sh ~/install-registry/manifest 172.22.5.2:5000
     ```
     ![image](figure/registry.PNG)
-
+    * 확인
+      * 
     * 확인
     ```bash
     $ curl {IP}:5000/v2/_catalog
     ```
     ![image](figure/catalog.PNG)
-
-## 삭제 가이드
