@@ -52,8 +52,12 @@
     ex ) sudo ./run-registry.sh ~/install-registry/manifest 172.22.5.2:5000
     ```
     ![image](figure/registry.PNG)
-    * 확인
-      * 
+    * registry 자동 시작 설정
+    ```bash
+    $ sudo docker ps
+    $ sudo docker update {CONTAINER ID} --restart=always
+    ex ) sudo docker update cb29966f81bd --restart=always
+    ``` 
     * 확인
     ```bash
     $ curl {IP}:5000/v2/_catalog
