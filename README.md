@@ -52,7 +52,7 @@
     ex ) sudo ./run-registry.sh ~/install-registry/manifest 172.22.5.2:5000
     ```
     ![image](figure/registry.PNG)
-    * registry 자동 시작 설정
+    * registry 자동 재시작 설정
     ```bash
     $ sudo docker ps
     $ sudo docker update {CONTAINER ID} --restart=always
