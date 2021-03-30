@@ -1,7 +1,7 @@
 # Image Registry 설치 가이드
 
 ## 구성 요소 및 버전
-* docker-ce(v18.09.7)
+* docker-ce(v20.10.5)
 
 ## 폐쇄망 설치 가이드
   * image registry는 노드 1개(master)에서만 진행한다. 
