@@ -10,7 +10,7 @@
         * https://github.com/tmax-cloud/install-registry/tree/5.0/manifest
         * git이 설치되어 있는 경우 clone
            ```bash
-           $ https://github.com/tmax-cloud/install-registry
+           $ git clone https://github.com/tmax-cloud/install-registry
            $ cd install-registry/manifest
            ```
 
