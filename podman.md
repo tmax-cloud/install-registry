@@ -21,6 +21,13 @@
    IP=<내부망IP(default:127.0.0.1)> PORT=<port:default:5000> make install 
    ```
 
+## 신뢰하는 레지스트리로 등록
+1. /etc/containers/registries.conf에 insecure registry 등록
+   ```text
+   [registires.insecure]
+   registries = ["<내부망IP>:<PORT>"]
+   ```
+   
 ## 이미지 푸시하기
 1. (외부망 환경에서) 설치하고자하는 이미지를 pull 및 tar 파일로 저장
    ```bash
@@ -30,7 +37,8 @@
 
 2. tar 이미지 파일을 (레지스트리를 띄운) 내부 환경으로 복사
 
-3. 이미지 로드 및 푸시
+3. 대상 레지스트리를 [신뢰하는 레지스트리로 등록](https://github.com/tmax-cloud/install-registry/blob/5.0/podman.md#%EC%8B%A0%EB%A2%B0%ED%95%98%EB%8A%94-%EB%A0%88%EC%A7%80%EC%8A%A4%ED%8A%B8%EB%A6%AC%EB%A1%9C-%EB%93%B1%EB%A1%9D)
+4. 이미지 로드 및 푸시
    ```bash
    podman load -i <image_archive>.tar
    podman tag <내부망IP>:<PORT>/<image> <image> # podman tag 172.22.0.5:5000/redis redis
@@ -38,12 +46,7 @@
    ```
 
 ## 이미지 풀하기
-1. (내부망의 다른 노드에서 pull할 경우) /etc/containers/registries.conf에 insecure registry 등록
-   ```text
-   [registires.insecure]
-   registries = ["<내부망IP>:<PORT>"]
-   ```
-
+1. 대상 레지스트리를 [신뢰하는 레지스트리로 등록](https://github.com/tmax-cloud/install-registry/blob/5.0/podman.md#%EC%8B%A0%EB%A2%B0%ED%95%98%EB%8A%94-%EB%A0%88%EC%A7%80%EC%8A%A4%ED%8A%B8%EB%A6%AC%EB%A1%9C-%EB%93%B1%EB%A1%9D)
 2. 이미지 풀
    ```bash
    podman pull <내부망IP>:<PORT>/<image>
