@@ -2,7 +2,7 @@
 
 ## 구성 요소 및 버전
 * podman (v2.2.1 이상)
-* openssl (v1.1.1 이상)
+* openssl (v1.0.2k 이상)
 
 ## 설치
 1. 패키지 설치
@@ -16,7 +16,13 @@
    cd install-registry
    ```
    
-3. 설치
+3. 인증서 생성
+   ```bash
+   vi ./trust/cert.conf # 자신의 환경에 맞게 수정 (IP, DNS)
+   make trust
+   ```
+
+4. 설치
    ```bash
    IP=<내부망IP(default:127.0.0.1)> PORT=<port:default:5000> make install 
    ```
