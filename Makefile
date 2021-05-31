@@ -12,15 +12,16 @@ ca:
 	openssl req -x509 -nodes -days 3650 -newkey rsa:4096 \
             -keyout ./trust/ca.key -out ./trust/ca.crt \
             -subj "/C=KR/ST=Seoul/L=Seoul/O=Tmax"
+
 cert:
-	openssl genrsa -aes256 -out ./trust/registry.key 2048
-	cp ./trust/registry.key ./trust/registry.key.enc
-	openssl rsa -in ./trust/registry.key.enc -out ./trust/registry.key
-	openssl req -new -key ./trust/registry.key -out ./trust/registry.csr -config ./trust/cert.conf
+	openssl genrsa -aes256 -out ./trust/key.pem 2048
+	cp ./trust/key.pem ./trust/key.pem.enc
+	openssl rsa -in ./trust/key.pem.enc -out ./trust/key.pem
+	openssl req -new -key ./trust/key.pem -out ./trust/registry.csr -config ./trust/cert.conf
 	openssl x509 -req -days 1825 -extensions v3_user -in ./trust/registry.csr \
     -CA ./trust/ca.crt -CAcreateserial \
     -CAkey ./trust/ca.key \
-    -out  ./trust/registry.crt -extfile ./trust/cert.conf
+    -out  ./trust/cert.pem -extfile ./trust/cert.conf
 
 trust: ca cert
 #	openssl req -x509 -newkey rsa:4096 -sha256 -nodes \
