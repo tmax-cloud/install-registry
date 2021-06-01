@@ -37,10 +37,17 @@
   ![image](figure/docker_registry.PNG)
     * docker를 재실행하고 status를 확인한다.
     ```bash
-    $  sudo systemctl restart docker
-    $  sudo systemctl status docker
+    $ sudo systemctl restart docker
+    $ sudo systemctl status docker
     ```    
-
+* 비고 :
+    * docker-ce 설치 시 runtime confilct 에러가 발생하는 경우 아래와 같이 우회하여 docker 설치를 진행한다.
+      *  ex) Error: containerd.io conflicts with 2:runc-1.0.0-377.rc93.el7.8.1.x86_64
+	 ```bash
+    $ sudo yum list | grep runc
+    $ sudo yum remove runc
+    $ sudo yum install docker-ce
+	 ``` 
 ## Step 1. registry 실행
 * 목적 : `폐쇄망 환경에서 image 사용을 위한 registry를 구축한다.`
 * 생성 순서 :
