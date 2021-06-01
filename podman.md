@@ -16,13 +16,26 @@
    cd install-registry
    ```
    
-3. 인증서 생성
-   ```bash
-   vi ./trust/cert.conf # 자신의 환경에 맞게 수정 (IP, DNS)
-   make trust
+3. CSR(./trust/cert.conf) 수정 
+   ```text
+   [ alt_names ]
+   DNS.1 = <enter_your_registry_domain>
+   IP.1 = <enter_your_registry_ip>
    ```
 
-4. 설치
+4. 인증서 생성
+   ```bash
+   make trust
+   ...
+   Country Name (2 letter code) [KR]: <enter_your_country>
+   Organization Name (eg, company) [TmaxCloud]: <enter_your_origanization_name>
+   Organizational Unit Name (eg, section) [DevOps]: <enter_your_origanization_unit_name>
+   Common Name (eg, hostname) [registry]: <enter_hostname>
+   ...
+   ```
+   
+
+5. 설치
    ```bash
    IP=<내부망IP(default:127.0.0.1)> PORT=<port:default:5000> make install 
    ```
@@ -47,7 +60,7 @@
 4. 이미지 로드 및 푸시
    ```bash
    podman load -i <image_archive>.tar
-   podman tag <내부망IP>:<PORT>/<image> <image> # podman tag 172.22.0.5:5000/redis redis
+   podman tag <내부망IP>:<PORT>/<image> <image> # podman tag redis 172.22.0.5:5000/redis
    podman push <내부망IP>:<PORT>/<image> # podman push 172.22.0.5:5000/redis
    ```
 
