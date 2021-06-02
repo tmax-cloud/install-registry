@@ -21,6 +21,11 @@
 ## Step 0. docker 설치
 * 목적 : `docker registry를 구축하기 위해 docker를 설치한다.`
 * 생성 순서 :
+    * docker 필요 패키지를 설치와 docker-ce.repo를 등록한다.
+    ```bash
+    $ yum -y install yum-utils device-mapper-persistent-data lvm2
+    $ yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+    ```
     * docker를 설치한다.
     ```bash
     $ sudo yum install -y docker-ce
@@ -47,7 +52,12 @@
     $ sudo yum list | grep runc
     $ sudo yum remove runc
     $ sudo yum install docker-ce
-	 ``` 
+	 ```
+    * docker-ce 설치 시 특정 버전을 설치할 경우 버전을 명시하여 설치한다.
+    ```bash
+    $ yum list docker-ce.x86-64 --showduplicates
+    $ ex) yum install -y docker-ce-18.09.7.ce
+    ``` 
 ## Step 1. registry 실행
 * 목적 : `폐쇄망 환경에서 image 사용을 위한 registry를 구축한다.`
 * 생성 순서 :
