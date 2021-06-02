@@ -21,7 +21,7 @@
 ## Step 0. docker 설치
 * 목적 : `docker registry를 구축하기 위해 docker를 설치한다.`
 * 생성 순서 :
-    * docker 필요 패키지를 설치와 docker-ce.repo를 등록한다.
+    * docker 의존성 패키지를 설치와 docker-ce.repo를 등록한다.
     ```bash
     $ yum -y install yum-utils device-mapper-persistent-data lvm2
     $ yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
