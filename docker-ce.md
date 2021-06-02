@@ -32,6 +32,11 @@
     $ sudo systemctl start docker
     $ sudo systemctl enable docker
     ```
+    * docker-ce 설치 시 특정 버전을 설치할 경우 버전을 명시하여 설치한다.
+    ```bash
+    $ yum list docker-ce.x86-64 --showduplicates
+    $ ex) yum install -y docker-ce-18.09.7.ce
+    ```
     * docker damon에 insecure-registries를 등록한다.
         * sudo vi /etc/docker/daemon.json
     ```bash
@@ -52,12 +57,7 @@
     $ sudo yum list | grep runc
     $ sudo yum remove runc
     $ sudo yum install docker-ce
-	 ```
-    * docker-ce 설치 시 특정 버전을 설치할 경우 버전을 명시하여 설치한다.
-    ```bash
-    $ yum list docker-ce.x86-64 --showduplicates
-    $ ex) yum install -y docker-ce-18.09.7.ce
-    ``` 
+	 ``` 
 ## Step 1. registry 실행
 * 목적 : `폐쇄망 환경에서 image 사용을 위한 registry를 구축한다.`
 * 생성 순서 :
