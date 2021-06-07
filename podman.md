@@ -39,6 +39,13 @@
    ```bash
    IP=<내부망IP(default:127.0.0.1)> PORT=<port:default:5000> make install 
    ```
+   
+### 트러블슈팅
+   * Podman run error in non-root mode: "user namespaces are not enabled in /proc/sys/user/max_user_namespaces" 
+      ```bash
+     sudo su 
+     echo 'user.max_user_namespaces=10000' > /etc/sysctl.d/42-rootless.conf && sysctl --system   
+      ```
 
 ## 신뢰하는 레지스트리로 등록
 1. /etc/containers/registries.conf에 insecure registry 등록
