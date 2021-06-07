@@ -12,7 +12,7 @@
    
 2. git repo clone
    ```bash
-   git clone https://github.com/tmax-cloud/install-registry.git
+   git clone -b 5.0 https://github.com/tmax-cloud/install-registry.git
    cd install-registry
    ```
    
@@ -60,7 +60,7 @@
 4. 이미지 로드 및 푸시
    ```bash
    podman load -i <image_archive>.tar
-   podman tag <내부망IP>:<PORT>/<image> <image> # podman tag redis 172.22.0.5:5000/redis
+   podman tag <image> <내부망IP>:<PORT>/<image> # podman tag redis 172.22.0.5:5000/redis
    podman push <내부망IP>:<PORT>/<image> # podman push 172.22.0.5:5000/redis
    ```
 
