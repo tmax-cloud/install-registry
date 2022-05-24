@@ -1,8 +1,9 @@
 # Image Registry
 Image Registry is a server side application that stores and lets you distribute Docker images.
 This Registry is open-source [Docker distribution(Docker Registry)](https://github.com/distribution/distribution).
+You can use docker private image registry by deploying as docker daemon or K8s.
 
-## 개요 
+## Overview
 * 설치 목적: 애플리케이션 이미지를 관리하기 위함
 * 모듈 역할: 클러스터 구축 과정에서 임시 레지스트리로 사용
 
