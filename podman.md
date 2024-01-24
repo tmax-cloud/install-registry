@@ -50,8 +50,10 @@
 ## 신뢰하는 레지스트리로 등록
 1. /etc/containers/registries.conf에 insecure registry 등록
    ```text
-   [registires.insecure]
-   registries = ["<내부망IP>:<PORT>"]
+   [[registry]]
+   prefix = “<“내부망IP>:<내부망PORT>”
+   location =  “<“내부망IP>:<내부망PORT>”
+   insecure = true
    ```
    
 ## 이미지 푸시하기
